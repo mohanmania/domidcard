@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card</title>
+</head>
+<body>
+
+    <form onsubmit="demo()">
+        <label>Username:</label>
+        <input type="name" id="name" required/>
+        <label>Phone Number:</label>
+        <input type="text" id="phno" required/>
+        <label>Blood Group:</label>
+        <input type="text" id="blood" required/>
+        <input type="submit"/>
+    </form>
+
+    <div id="div1">
+        <p id="loadingMsg"></p>
+        <p id="ip1"><b></b></p>
+        <p id="ip2"></p>
+        <p id="ip3"></p>
+    </div>
+
+<script>
+  function demo(){
+    event.preventDefault(); 
+
+  
+    let loadingMsg = document.getElementById("loadingMsg");
+    loadingMsg.innerHTML = "please wait...for ...ID card...";
+    
+
+    setTimeout(() => {
+       
+        loadingMsg.innerHTML = "";
+
+        let div1 = document.getElementById("div1");
+        div1.style.height = "250px";
+        div1.style.width = "200px";
+        div1.style.color = "red";
+        div1.style.backgroundColor = "lightgrey";
+        div1.style.border = "2px solid black";
+
+      
+        let img = document.createElement("img");
+        div1.appendChild(img);
+        img.setAttribute("src", "https://tse3.mm.bing.net/th?id=OIP.ooMsE4-L9sZr4JKjul74JwHaE8&pid=Api&P=0&h=180");
+        img.setAttribute("height", "100");
+        img.setAttribute("width", "100");
+        img.style.paddingLeft = "50px";
+        img.style.paddingTop = "-90px";
+        img.style.borderRadius = "30%";
+
+       
+        let name = document.getElementById("name").value;
+        let phno = document.getElementById("phno").value;
+        let blood = document.getElementById("blood").value;
+
+        document.getElementById("ip1").innerHTML = "<small><b>NAME</b></small>: " + name;
+        document.getElementById("ip2").innerHTML = "<small><b>PHNO</b></small>: " + phno;
+        document.getElementById("ip3").innerHTML = "<small><b>BLOOD</b></small>: " + blood;
+    }, 3000); 
+  }
+
+</script>
+
+</body>
+</html>
